@@ -1,0 +1,37 @@
+
+public class Main {
+	static boolean isFind(int list[], int value) {
+        for(int i : list) {
+            if (i == value) {
+                return true;
+            }
+        }
+        return false;
+	}
+	public static void main(String[] args) {
+		int[] array = {3, 6, 3, 2, 9, 4, 21, 6, 33, 9, 10, 2, 10, 5};
+        int[] duplicate = new int[array.length];
+        int startIndex = 0;
+        for(int i = 0; i < array.length; i++) {
+            for(int j = 0; j < array.length; j++) {
+                if ((i != j) && (array[i] == array[j]) && (array[i] % 2 == 0)) {
+                    if (!isFind(duplicate, array[i])) {
+                    	duplicate[startIndex++] = array[i];
+                    }
+                    break;
+                }
+            }
+        }
+
+        System.out.println("Repeating even numbers: : ");
+
+        for (int value : duplicate) {
+            if (value != 0) {
+                System.out.println(value);
+            }
+        }
+
+
+	}
+
+}
