@@ -1,0 +1,41 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class main {
+
+	public static void main(String[] args) {
+		int n,i;
+				
+		//Dizinin boyutu girildi.
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter my directory size: ");
+		n = input.nextInt();
+		
+		int[] arr = new int[n];
+		int count = 0;
+		
+		//Dizinin boyutu kadar elemanlar� girildi.
+		for(i=0;i<n;i++) {
+			System.out.println("Enter the " + (i+1) + ". element: ");
+			int eleman = input.nextInt();
+			arr[count++]= eleman;
+		}
+		System.out.println("New array \t: " + Arrays.toString(arr));
+		
+		//Yeni dizi s�raland�. 
+		int arr2;
+
+        for (i = 0; i < arr.length; i++){
+            for(int j = i+1; j < arr.length; j++){
+                if(arr[j] < arr[i]){
+                    arr2 = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = arr2;
+                }
+            }
+        }
+        System.out.println("Ordered array \t: " + Arrays.toString(arr));
+
+	}
+
+}
